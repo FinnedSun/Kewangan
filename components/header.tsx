@@ -13,7 +13,7 @@ export const Header = () => {
             <HeaderLogo />
             <Navigation />
           </div>
-          <ClerkLoaded>
+          <ClerkLoaded >
             <UserButton afterSignOutUrl="/" />
           </ClerkLoaded>
           <ClerkLoading>
