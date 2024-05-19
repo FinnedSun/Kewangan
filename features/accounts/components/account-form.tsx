@@ -24,17 +24,19 @@ type FormValues = z.input<typeof formSchema>
 type Props = {
   id?: string
   defalutValues?: FormValues
-  onSubmit: (valuse: FormValues) => void
+  onSubmit: (values: FormValues) => void
   onDelete?: () => void
   disabled?: boolean
 }
+
+
 
 export const AccountForm = ({
   id,
   defalutValues,
   onSubmit,
   onDelete,
-  disabled,
+  disabled
 }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -73,22 +75,22 @@ export const AccountForm = ({
             </FormItem>
           )}
         />
-      </form>
-      <Button className="w-full" disabled={disabled}>
-        {id ? "Simpan" : "Buat akun"}
-      </Button>
-      {!!id && (
-        <Button
-          type="button"
-          disabled={disabled}
-          onClick={handleDelete}
-          className="w-full"
-          variant={"outline"}
-        >
-          <Trash className="size-4 mr-2" />
-          Hapus Akun
+        <Button className="w-full" disabled={disabled}>
+          {id ? "Simpan" : "Buat akun"}
         </Button>
-      )}
+        {!!id && (
+          <Button
+            type="button"
+            disabled={disabled}
+            onClick={handleDelete}
+            className="w-full"
+            variant={"outline"}
+          >
+            <Trash className="size-4 mr-2" />
+            Hapus Akun
+          </Button>
+        )}
+      </form>
     </Form>
   )
 }
