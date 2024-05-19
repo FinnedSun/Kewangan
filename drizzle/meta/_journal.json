@@ -15,6 +15,13 @@
       "when": 1715753488933,
       "tag": "0001_yielding_oracle",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1716157219222,
+      "tag": "0002_melodic_white_queen",
+      "breakpoints": true
     }
   ]
 }
