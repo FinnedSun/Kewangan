@@ -29,14 +29,12 @@ type Props = {
   disabled?: boolean
 }
 
-
-
 export const AccountForm = ({
   id,
   defalutValues,
   onSubmit,
   onDelete,
-  disabled
+  disabled,
 }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
