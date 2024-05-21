@@ -20,7 +20,7 @@ import {
 import { zValidator } from "@hono/zod-validator"
 import { createId } from "@paralleldrive/cuid2"
 import { z } from "zod";
-import { error } from "console";
+
 
 const app = new Hono()
   .get(
@@ -55,7 +55,7 @@ const app = new Hono()
           id: transactions.id,
           date: transactions.date,
           category: categories.name,
-          categoruId: transactions.categoryId,
+          categoryId: transactions.categoryId,
           payee: transactions.payee,
           amount: transactions.amount,
           notes: transactions.notes,
@@ -101,12 +101,10 @@ const app = new Hono()
         .select({
           id: transactions.id,
           date: transactions.date,
-          category: categories.name,
-          categoruId: transactions.categoryId,
+          categoryId: transactions.categoryId,
           payee: transactions.payee,
           amount: transactions.amount,
           notes: transactions.notes,
-          account: accounts.name,
           accountId: transactions.accountId,
         })
         .from(transactions)

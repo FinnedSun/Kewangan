@@ -11,7 +11,7 @@ import { useNewTransaction } from "@/features/transactions/hooks/use-new-transac
 import { Loader2, Plus } from "lucide-react"
 import { columns } from "./columns"
 import { DataTable } from "@/components/data-table"
-import { useGetAccouts } from "@/features/accounts/api/use-get-accounts"
+import { useGetTransactions } from "@/features/transactions/api/use-get-transactions"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useBalkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions"
 
@@ -20,12 +20,12 @@ import { useBalkDeleteTransactions } from "@/features/transactions/api/use-bulk-
 const TransactionsPage = () => {
   const newTransactino = useNewTransaction()
   const deleteTransactions = useBalkDeleteTransactions()
-  const accountsQuery = useGetAccouts()
-  const accounts = accountsQuery.data || []
+  const transactionsQuery = useGetTransactions()
+  const transactions = transactionsQuery.data || []
 
-  const isDisabled = accountsQuery.isLoading || deleteTransactions.isPending
+  const isDisabled = transactionsQuery.isLoading || deleteTransactions.isPending
 
-  if (accountsQuery.isLoading) {
+  if (transactionsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
         <Card className="border-none drop-shadow-sm">
@@ -61,9 +61,9 @@ const TransactionsPage = () => {
               const ids = row.map((r) => r.original.id)
               deleteTransactions.mutate({ ids })
             }}
-            filterKey="name"
+            filterKey="payee"
             columns={columns}
-            data={accounts}
+            data={transactions}
             disabled={isDisabled}
           />
         </CardContent>
