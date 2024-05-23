@@ -7,6 +7,7 @@ import {
   CardContent,
   CardTitle
 } from "@/components/ui/card"
+import { transactions as transactionSchem } from "@/db/schema"
 import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction"
 import { Loader2, Plus } from "lucide-react"
 import { columns } from "./columns"
@@ -17,6 +18,9 @@ import { useBalkDeleteTransactions } from "@/features/transactions/api/use-bulk-
 import { useState } from "react"
 import { UpaloadButton } from "./upload-button"
 import { ImportCard } from "./import-card"
+import { useSelectAccount } from "@/features/accounts/hooks/use-select-account"
+import { toast } from "sonner"
+import { useBalkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions"
 
 enum VARIANTS {
   LIST = "LIST",
@@ -30,6 +34,7 @@ const INITIAL_IMPORT_RESULTS = {
 }
 
 const TransactionsPage = () => {
+  const [AccountDialong, confirm] = useSelectAccount()
   const [variant, setVariat] = useState<VARIANTS>(VARIANTS.LIST)
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS)
 
@@ -46,11 +51,33 @@ const TransactionsPage = () => {
   }
 
   const newTransactino = useNewTransaction()
+  const createTransactions = useBalkCreateTransactions()
   const deleteTransactions = useBalkDeleteTransactions()
   const transactionsQuery = useGetTransactions()
   const transactions = transactionsQuery.data || []
 
   const isDisabled = transactionsQuery.isLoading || deleteTransactions.isPending
+
+  const onSubmitImport = async (
+    values: typeof transactionSchem.$inferInsert[]
+  ) => {
+    const accountId = await confirm()
+
+    if (!accountId) {
+      return toast.error("Tolong pilih akun untuk melajutkan.")
+    }
+
+    const data = values.map((value) => ({
+      ...value,
+      accountId: accountId as string,
+    }))
+
+    createTransactions.mutate(data, {
+      onSuccess: () => {
+        onClacelImport()
+      }
+    })
+  }
 
   if (transactionsQuery.isLoading) {
     return (
@@ -73,10 +100,11 @@ const TransactionsPage = () => {
   if (variant === VARIANTS.IMPORT) {
     return (
       <>
+        <AccountDialong />
         <ImportCard
           data={importResults.data}
           onCancel={onClacelImport}
-          onSubmit={() => { }}
+          onSubmit={onSubmitImport}
         />
       </>
     )
