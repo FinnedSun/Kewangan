@@ -1,6 +1,6 @@
 import { db } from "@/db/drizzle";
 import { accounts, categories, transactions } from "@/db/schema";
-import { calculcatePrecentageChange, fillMissingDays } from "@/lib/utils";
+import { calculatePrecentageChange, fillMissingDays } from "@/lib/utils";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { zValidator } from "@hono/zod-validator";
 import { subDays, parse, differenceInDays } from "date-fns";
@@ -78,21 +78,21 @@ const app = new Hono()
       )
       const [lastPeriod] = await fetchFinancialData(
         auth.userId,
-        startDate,
-        endDate,
+        lastPeriodStart,
+        lastPeriodEnd,
       )
 
-      const incomeChange = calculcatePrecentageChange(
+      const incomeChange = calculatePrecentageChange(
         currentPeriod.income,
         lastPeriod.income
       )
 
-      const expensesChange = calculcatePrecentageChange(
+      const expensesChange = calculatePrecentageChange(
         currentPeriod.expenses,
         lastPeriod.expenses
       )
 
-      const remainingChange = calculcatePrecentageChange(
+      const remainingChange = calculatePrecentageChange(
         currentPeriod.remaining,
         lastPeriod.remaining
       )
