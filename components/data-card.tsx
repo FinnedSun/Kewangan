@@ -98,7 +98,7 @@ export const DataCard = ({
           percentageChange > 0 && "text-emerald-500",
           percentageChange < 0 && "text-rose-500"
         )}>
-          {formatPercentage(percentageChange)} dari periode terakhir
+          {formatPercentage(percentageChange, { addPrifix: true })} dari periode terakhir
         </p>
       </CardContent>
     </Card>
