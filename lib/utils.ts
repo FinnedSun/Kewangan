@@ -74,7 +74,7 @@ type Period = {
   to: string | Date | undefined
 }
 
-export function formatDateRange(period: Period) {
+export function formatDateRange(period?: Period) {
   const defaultTo = new Date()
   const defaultFrom = subDays(defaultTo, 30)
 
@@ -95,7 +95,7 @@ export function formatPercentage(
     addPrifix: false
   },
 ) {
-  const result = new Intl.NumberFormat("en-US", {
+  const result = new Intl.NumberFormat("id-ID", {
     style: "percent"
   }).format(value / 100)
 

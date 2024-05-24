@@ -23,6 +23,7 @@ export const useBalkDeleteAccounts = () => {
         onSuccess: () => {
             toast.success("Akun terhapus!")
             queryClient.invalidateQueries({ queryKey: ["accounts"] })
+            queryClient.invalidateQueries({ queryKey: ["summary"] })
             // TODO: Also Validete summary
         },
         onError: () => {

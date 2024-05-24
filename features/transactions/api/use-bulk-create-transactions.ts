@@ -23,7 +23,7 @@ export const useBalkCreateTransactions = () => {
         onSuccess: () => {
             toast.success("Transaksi dibuat!")
             queryClient.invalidateQueries({ queryKey: ["transactions"] })
-            // TODO: Also Validete summary
+            queryClient.invalidateQueries({ queryKey: ["summary"] })
         },
         onError: () => {
             toast.error("Gagal membuat transaksi.")

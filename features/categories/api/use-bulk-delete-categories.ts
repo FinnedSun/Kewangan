@@ -23,7 +23,7 @@ export const useBalkDeleteCategories = () => {
         onSuccess: () => {
             toast.success("Kategori terhapus!")
             queryClient.invalidateQueries({ queryKey: ["categories"] })
-            // TODO: Also Validete summary
+            queryClient.invalidateQueries({ queryKey: ["summary"] })
         },
         onError: () => {
             toast.error("Gagal menghapus kategori.")

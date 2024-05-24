@@ -23,7 +23,7 @@ export const useBalkDeleteTransactions = () => {
         onSuccess: () => {
             toast.success("Transaksi terhapus!")
             queryClient.invalidateQueries({ queryKey: ["transactions"] })
-            // TODO: Also Validete summary
+            queryClient.invalidateQueries({ queryKey: ["summary"] })
         },
         onError: () => {
             toast.error("Gagal menghapus transaksi.")
