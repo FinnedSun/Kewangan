@@ -11,7 +11,7 @@ export const WelcomeMsg = () => {
         Selamat Datang{isLoaded ? ", " : " "}{user?.firstName} 👋🏻
       </h2>
       <p className="text-sm lg:text-base text-[#89b6fd]">
-        Financial adalah ringkasan laporan keuangan anda.
+        Kewangan adalah ringkasan laporan keuangan anda.
       </p>
     </div>
   )

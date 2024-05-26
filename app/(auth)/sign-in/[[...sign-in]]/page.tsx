@@ -2,6 +2,11 @@ import { Loader2 } from "lucide-react";
 import { SignIn, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Sign-in"
+};
+
+
 export default function Page() {
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2">

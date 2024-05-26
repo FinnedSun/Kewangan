@@ -2,6 +2,10 @@ import { ClerkLoaded, ClerkLoading, SignUp } from "@clerk/nextjs";
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 
+export const metadata = {
+    title: "Sign-up"
+};
+
 export default function Page() {
     return (
         <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
