@@ -17,8 +17,8 @@ const boxVariant = cva(
   {
     variants: {
       variant: {
-        default: "bg-blue-500/20",
-        success: "bg-emerald-500/20",
+        default: "bg-emerald-500/20",
+        success: "bg-blue-500/20",
         danger: "bg-rose-500/20",
         warning: "bg-yellow-500/20",
       }
@@ -46,8 +46,8 @@ const iconVariant = cva(
   {
     variants: {
       variant: {
-        default: "fill-blue-500",
-        success: "fill-emerald-500",
+        default: "fill-emerald-500",
+        success: "fill-blue-500",
         danger: "fill-rose-500",
         warning: "fill-yellow-500",
       }

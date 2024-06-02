@@ -14,3 +14,4 @@ const SEED_USER_ID = 'user_2gSfb6mYchVIifpXlBGLvZ1gu9Z'
 const SEED_CATEGORIES = [
   { id: "category_1", name: "Food" }
 ]
+//https://kewangan.site
