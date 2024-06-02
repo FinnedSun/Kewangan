@@ -10,7 +10,7 @@ export const WelcomeMsg = () => {
       <h2 className="text-2xl lg:text-4xl text-white font-medium">
         Selamat Datang{isLoaded ? ", " : " "}{user?.firstName} 👋🏻
       </h2>
-      <p className="text-sm lg:text-base text-[#89b6fd]">
+      <p className="text-sm lg:text-base text-[#89fdbf]">
         Kewangan adalah ringkasan laporan keuangan anda.
       </p>
     </div>
