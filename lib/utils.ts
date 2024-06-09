@@ -16,7 +16,7 @@ export function convertAmountToMiliunits(amount: number) {
 
 //Penjelasan ada di 7:27
 export function formatCurrency(value: number) {
-  return Intl.NumberFormat('id-ID', {
+  return Intl.NumberFormat('id', {
     style: 'currency',
     currency: "IDR",
     minimumFractionDigits: 3,
