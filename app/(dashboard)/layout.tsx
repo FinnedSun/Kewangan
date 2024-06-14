@@ -1,4 +1,5 @@
 import { Header } from "@/components/header"
+import { Shortcut } from "@/components/shortcut";
 
 export const metadata = {
   icons: [
@@ -19,6 +20,7 @@ const LayoutDashboard = ({ children }: Props) => {
     <>
       <Header />
       <main className="px-3 lg:px-14">
+        <Shortcut />
         {children}
       </main>
     </>
