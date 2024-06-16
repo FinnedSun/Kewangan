@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Shortcut } from "@/components/shortcut";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   icons: [
@@ -22,6 +23,7 @@ const LayoutDashboard = ({ children }: Props) => {
       <main className="px-3 lg:px-14">
         <Shortcut />
         {children}
+        <Analytics />
       </main>
     </>
   )
