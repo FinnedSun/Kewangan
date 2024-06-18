@@ -1,10 +1,8 @@
 {
-  "id": "639e6752-06f6-4206-890b-88a60971a51d",
-  "prevId": "9e429e87-872f-4c26-81b1-ae4b3d14d1bb",
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "accounts": {
+    "public.accounts": {
       "name": "accounts",
       "schema": "",
       "columns": {
@@ -38,7 +36,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "categories": {
+    "public.categories": {
       "name": "categories",
       "schema": "",
       "columns": {
@@ -76,8 +74,10 @@
   "enums": {},
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "639e6752-06f6-4206-890b-88a60971a51d",
+  "prevId": "9e429e87-872f-4c26-81b1-ae4b3d14d1bb"
 }
