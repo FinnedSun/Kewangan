@@ -12,6 +12,8 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage
+
 } from "@/components/ui/form"
 
 const formSchema = insertCategoriesSchema.pick({
